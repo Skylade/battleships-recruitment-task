@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using battleships.GameObjects;
 
 namespace battleships
 {
@@ -6,7 +8,12 @@ namespace battleships
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Battleships!");
+            Console.WriteLine("Welcome to Battleships!");
+
+            var game = new Game();
+
+            game.Start();
+
         }
     }
 }
