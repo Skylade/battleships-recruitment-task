@@ -26,9 +26,11 @@ namespace battleships.GameObjects.Boards
             }
         }
 
-        public char FieldTypeAt(int x, int y)
+        public Field FieldAt(int x, int y)
         {
-            return Fields.First(field => field.Coordinates.X == x || field.Coordinates.Y == y).FieldType;
+            return Fields.First(field => field.Coordinates.X == x && field.Coordinates.Y == y);
         }
+
+
     }
 }

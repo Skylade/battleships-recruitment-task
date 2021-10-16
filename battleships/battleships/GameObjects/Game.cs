@@ -25,7 +25,8 @@ namespace battleships.GameObjects
         public void Start()
         {
             _player1.PrintBoards();
-            _player2.PrintBoards();
+            _player1.placeShips();
+            _player1.PrintBoards();
         }
     }
 }
