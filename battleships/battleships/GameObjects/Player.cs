@@ -27,7 +27,10 @@ namespace battleships.GameObjects
         private readonly GameBoard _gameBoard = new GameBoard();
         private readonly FireBoard _fireBoard = new FireBoard();
 
-
+        public bool HasPlayerLost()
+        {
+            return ShipsList.Any(ship => ship.HasSunk() == false);
+        }
 
         /// <summary>
         /// Method returns randomly selected coordinates. Currently naive solution. 
@@ -36,7 +39,7 @@ namespace battleships.GameObjects
         public Coordinates Fire()
         {
             var rn = new Random();
-            var availableFields = _gameBoard.GetAvailableFieldsList();
+            var availableFields = _fireBoard.GetAvailableFieldsList();
             var availableFieldNumber = rn.Next(availableFields.Count);
             
             return availableFields[availableFieldNumber].Coordinates;

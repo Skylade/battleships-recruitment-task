@@ -87,10 +87,5 @@ namespace battleships.GameObjects.Boards
 
             return occupiedList.Any();
         }
-
-        public List<Field> GetAvailableFieldsList()
-        {
-            return Fields.Where(field => field.FieldType != (char) FieldTypes.Hit && field.FieldType != (char)FieldTypes.Miss).ToList();
-        }
     }
 }
