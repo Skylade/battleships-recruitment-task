@@ -42,21 +42,22 @@ namespace battleships.GameObjects
             return availableFields[availableFieldNumber].Coordinates;
         }
 
-        public void ProcessShotResult()
+        public void ProcessShotResult(char shotResult, Coordinates firedShotCoordinates)
         {
-            
+            var shotField = _fireBoard.Fields.First(field => field.Coordinates.X == firedShotCoordinates.X && field.Coordinates.Y == firedShotCoordinates.Y);
 
-            throw new NotImplementedException();
+            // Change field status
+            shotField.FieldType = shotResult;
         }
 
-        public string ProcessShot(Coordinates firedShotCoordinates)
+        public char ProcessShot(Coordinates firedShotCoordinates)
         {
             var shotField = _gameBoard.Fields.First(field => field.Coordinates.X == firedShotCoordinates.X && field.Coordinates.Y == firedShotCoordinates.Y);
 
             if (shotField.FieldType == (char)FieldTypes.Empty)
             {
                 shotField.FieldType = (char)FieldTypes.Miss;
-                return "Miss";
+                return (char)FieldTypes.Miss;
             }
             else
             {
@@ -70,10 +71,12 @@ namespace battleships.GameObjects
 
                 if (hitShip.HasSunk())
                 {
-                    return "Sink";
+                    Console.WriteLine("Sink");
+                    return (char)FieldTypes.Hit;
                 }
 
-                return "Hit";
+                Console.WriteLine("Hit");
+                return (char)FieldTypes.Hit;
             }
         }
 

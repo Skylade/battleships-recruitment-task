@@ -38,22 +38,22 @@ namespace battleships.GameObjects
         { 
             //var endGame = false
 
-
             PrintPlayersBoards();
 
+            // Determine where to fire
             var firedShotCoordinates = _player1.Fire();
-            var shotResult = _player2.ProcessShot(firedShotCoordinates);
-            // _player1.ProcessShotResult();
 
             PrintChosenCoordinates(firedShotCoordinates, _player1.PlayerName);
-            Console.WriteLine("Player 1 " + shotResult);
+
+            // Change opponent board
+            var shotResult = _player2.ProcessShot(firedShotCoordinates);
+
+            // Change player board
+            _player1.ProcessShotResult(shotResult, firedShotCoordinates);
+
             PrintPlayersBoards();
 
-            /*firedShotCoordinates = _player2.Fire();
-            shotResult = _player1.ProcessShot(firedShotCoordinates);
-            _player2.ProcessShotResult();
-
-            Console.WriteLine("Player 2 " + shotResult);*/
+            
         }
 
         private void PrintChosenCoordinates(Coordinates chosenCoordinates, string playerName)
