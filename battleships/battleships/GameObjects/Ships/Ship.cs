@@ -11,7 +11,10 @@ namespace battleships.GameObjects.Ships
         public char ScreenSymbol { get; set; }
         public int Hits { get; set; }
 
-
+        /// <summary>
+        /// Method returns if a ship has sunk, based on its length and number of hits.
+        /// </summary>
+        /// <returns></returns>
         public bool HasSunk()
         {
             return Hits >= Length;

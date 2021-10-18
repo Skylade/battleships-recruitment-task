@@ -15,6 +15,9 @@ namespace battleships.GameObjects.Boards
             InitializeBoard();
         }
 
+        /// <summary>
+        /// Method initializes fields in our Fields list.
+        /// </summary>
         public void InitializeBoard()
         {
             for (int i = 0; i < 10; i++)
@@ -26,11 +29,15 @@ namespace battleships.GameObjects.Boards
             }
         }
 
+        /// <summary>
+        /// Method returns the field with passed x and y coordinates.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public Field FieldAt(int x, int y)
         {
             return Fields.First(field => field.Coordinates.X == x && field.Coordinates.Y == y);
         }
-
-
     }
 }
